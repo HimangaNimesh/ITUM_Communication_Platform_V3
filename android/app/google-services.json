@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "988317750401",
+    "project_id": "itumcommunicationplatfor-ed1ea",
+    "storage_bucket": "itumcommunicationplatfor-ed1ea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:988317750401:android:ffe93ebb1fe445643da980",
+        "android_client_info": {
+          "package_name": "com.example.itum_communication_platform"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "988317750401-kmufuf10k4badg9aabh8m5iuvrbioubt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBk3uOWMCIi4y2WaimV-5TWYuKlLR0JnCk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "988317750401-kmufuf10k4badg9aabh8m5iuvrbioubt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
