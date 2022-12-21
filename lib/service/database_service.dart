@@ -33,6 +33,8 @@ class DatabaseService{
     return userCollection.doc(uid).snapshots();
   }
 
+
+
   // creating a group
   Future createGroup(String userName, String id, String groupName) async{
     DocumentReference groupDocumentReference = await groupCollection.add({
@@ -66,11 +68,21 @@ class DatabaseService{
         .snapshots();
   }
 
+  getAdminChats(String groupId) async{
+    return groupCollection
+        .doc(groupId)
+        .collection("adminMessages")
+        .orderBy("time")
+        .snapshots();
+  }
+
   Future getGroupAdmin(String groupId) async{
     DocumentReference d = groupCollection.doc(groupId);
     DocumentSnapshot documentSnapshot = await d.get();
     return documentSnapshot['admin'];
   }
+
+
 
   // get group members
   getGroupMembers(groupId) async{
@@ -127,6 +139,15 @@ class DatabaseService{
   // send message
   sendMessage(String groupId, Map<String, dynamic> chatMessageData) async{
     groupCollection.doc(groupId).collection("messages").add(chatMessageData);
+    groupCollection.doc(groupId).update({
+      "recentMessage": chatMessageData['messages'],
+      "recentMessageSender": chatMessageData['sender'],
+      "recentMessageTime": chatMessageData['time'].toString(),
+    });
+  }
+
+  adminSendMessage(String groupId, Map<String, dynamic> chatMessageData) async{
+    groupCollection.doc(groupId).collection("adminMessages").add(chatMessageData);
     groupCollection.doc(groupId).update({
       "recentMessage": chatMessageData['messages'],
       "recentMessageSender": chatMessageData['sender'],
