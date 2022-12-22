@@ -18,6 +18,8 @@ class _RegisterPageState extends State<RegisterPage> {
   bool _isLoading = false;
   final formkey = GlobalKey<FormState>();
   String email = "";
+  String itumMailLast = "@itum.mrt.ac.lk";
+  String itumMail = "";
   String password = "";
   String fullName = "";
   AuthService authService = AuthService();
@@ -73,7 +75,12 @@ class _RegisterPageState extends State<RegisterPage> {
                       });
                     },
                     validator: (val){
-                      return RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(val!) ? null: "Please enter a valid email";
+                      if(val!.contains(itumMailLast)){
+                        val = itumMail;
+                      }else{
+                        return "Please enter ITUM email address";
+                      }
+                      // return RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(itumMail) ? null: "Please enter a valid email";
                     },
                   ),
                   const SizedBox(height: 15,),

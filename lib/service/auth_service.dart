@@ -5,6 +5,7 @@ import 'package:itum_communication_platform/service/database_service.dart';
 class AuthService{
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 
+  //login
   Future loginWithUserNameandPassword(String email, String password)async{
     try{
 
@@ -20,6 +21,7 @@ class AuthService{
     }
   }
 
+  //register
   Future registerUserWithEmailandPassword(String fullName, String email, String password)async{
     try{
 
@@ -37,6 +39,7 @@ class AuthService{
     }
   }
 
+  //signout
   Future signOut() async{
     try{
       await HelperFunctions.saveUserLoggedInStatus(false);

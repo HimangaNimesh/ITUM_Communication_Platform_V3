@@ -2,10 +2,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class HelperFunctions{
 
+  //keys
   static String userLoggedInkey = "LOGGEDINKEY";
   static String userNamekey = "USERNAMEKEY";
   static String userEmailKey = "USEREMAILKEY";
 
+  // saving the data to SF
   static Future<bool> saveUserLoggedInStatus(bool isUserLoggedIn) async{
     SharedPreferences sf = await SharedPreferences.getInstance();
     return await sf.setBool(userLoggedInkey, isUserLoggedIn);
@@ -21,6 +23,7 @@ class HelperFunctions{
     return await sf.setString(userEmailKey, userEmail);
   }
 
+  // getting the data from SF
   static Future<bool?> getUserLoggedInStatus() async{
     SharedPreferences sf = await SharedPreferences.getInstance();
     return sf.getBool(userLoggedInkey);

@@ -35,6 +35,7 @@ class _GroupHomeState extends State<GroupHome> {
     gettingUserData();
   }
 
+  // string manipulation
   String getId(String res){
     return res.substring(0, res.indexOf("_"));
   }
